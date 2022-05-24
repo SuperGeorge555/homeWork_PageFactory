@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class YandexPage extends PageFactory{
+public class YandexPage extends CustomPageFactory {
 
 
     public YandexPage(WebDriver driver) {
@@ -28,9 +28,14 @@ public class YandexPage extends PageFactory{
     }
 
     @Override
-    public void writeText(String xPath) {
+    public void search(String xPath) {
         WebElement element = driver.findElement(By.xpath(X_PATH_TEXT));
         element.sendKeys("Page Factory");
         element.sendKeys(Keys.ENTER);
+    }
+
+    @Override
+    public void open() {
+
     }
 }

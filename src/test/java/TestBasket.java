@@ -3,6 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import udm.kor.example.pagefactory.GooglePage;
 import udm.kor.example.pagefactory.YandexPage;
 import udm.kor.example.pages.BasketPage;
 import udm.kor.example.pages.MainPage;
@@ -48,12 +49,13 @@ public class TestBasket {
     }
 
     @Test
-    public void yandexTwo(){
-        DRIVER.get(YANDEX_URL);
-        YandexPage yandexPage = new YandexPage(DRIVER);
-        yandexPage.writeText(yandexPage.getX_PATH_TEXT());
-        WaitUtil.waitSecond(3);
-        yandexPage.findElements();
+    public void googleTwo(){
+        GooglePage newGoogle = new GooglePage(DRIVER);
+        newGoogle.open();
+        newGoogle.search("Page Factory");
+        newGoogle.findElements();
+
+
     }
 
 

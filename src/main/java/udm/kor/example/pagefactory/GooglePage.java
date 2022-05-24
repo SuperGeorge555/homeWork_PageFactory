@@ -4,30 +4,39 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class GooglePage extends PageFactory{
+public class GooglePage extends CustomPageFactory {
 
-    private final String X_PATH_TEXT = "//input[@id = 'text']";
+    @FindBy(xpath = "//input[@type = 'text']")
+    WebElement text;
+
+    @FindBy(xpath = "//div[@data-sokoban-container]")
+    List<WebElement> listOfSearch;
+
     WebDriver driver;
 
     public GooglePage(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @Override
     public void findElements() {
-        List<WebElement> listWebElement = driver.findElements(By.tagName("data-hveid"));
-        System.out.println(listWebElement.size());
+        listOfSearch.size();
     }
 
-
+    @Override
+    public void search(String search) {
+        text.sendKeys(search);
+        text.sendKeys(Keys.ENTER);
+    }
 
     @Override
-    public void writeText(String xPath) {
-        WebElement element = driver.findElement(By.xpath(X_PATH_TEXT));
-        element.sendKeys("Page Factory");
-        element.sendKeys(Keys.ENTER);
+    public void open() {
+        driver.get("https://www.google.ru/");
     }
 }

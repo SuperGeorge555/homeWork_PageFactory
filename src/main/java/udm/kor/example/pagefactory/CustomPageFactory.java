@@ -1,16 +1,15 @@
 package udm.kor.example.pagefactory;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
-public abstract class PageFactory {
+public abstract class CustomPageFactory {
 
     private WebDriver driver;
     public abstract void findElements();
-    public abstract void writeText(String xPath);
+    public abstract void search(String search);
+    public abstract void open();
+
+
 
     /*
     зайти на сайт

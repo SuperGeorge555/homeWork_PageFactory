@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 
-public class YahooPage extends PageFactory{
+public class YahooPage extends CustomPageFactory {
     WebDriver driver;
     private final String X_PATH_TEXT = "//input[@type ='text']";
 
@@ -23,10 +23,15 @@ public class YahooPage extends PageFactory{
     }
 
     @Override
-    public void writeText(String xPath) {
+    public void search(String xPath) {
         WebElement element = driver.findElement(By.xpath(X_PATH_TEXT));
         element.sendKeys("Page Factory");
         element.sendKeys(Keys.ENTER);
+    }
+
+    @Override
+    public void open() {
+
     }
 
 
