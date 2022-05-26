@@ -14,7 +14,7 @@ public class GooglePage extends CustomPageFactory {
     @FindBy(xpath = "//input[@type = 'text']")
     WebElement text;
 
-    @FindBy(xpath = "//div[@data-sokoban-container]")
+    @FindBy(xpath = "//li[@data-fast = '1']")
     List<WebElement> listOfSearch;
 
     WebDriver driver;
@@ -26,7 +26,11 @@ public class GooglePage extends CustomPageFactory {
 
     @Override
     public void findElements() {
-        listOfSearch.size();
+        System.out.println(listOfSearch.size());
+        for (WebElement element : listOfSearch) {
+            System.out.println(element);
+
+        }
     }
 
     @Override

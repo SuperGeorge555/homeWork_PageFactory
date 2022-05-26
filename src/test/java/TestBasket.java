@@ -4,6 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import udm.kor.example.pagefactory.GooglePage;
+import udm.kor.example.pagefactory.YahooPage;
 import udm.kor.example.pagefactory.YandexPage;
 import udm.kor.example.pages.BasketPage;
 import udm.kor.example.pages.MainPage;
@@ -54,10 +55,24 @@ public class TestBasket {
         newGoogle.open();
         newGoogle.search("Page Factory");
         newGoogle.findElements();
-
-
     }
 
+    @Test
+    public void yandexPage(){
+        YandexPage newYandex = new YandexPage(DRIVER);
+        newYandex.open();
+        newYandex.search("Page Factory");
+        newYandex.findElements();
+    }
+
+    @Test
+    public void yahooPage(){
+        YahooPage newYahoo = new YahooPage(DRIVER);
+        newYahoo.open();
+        WaitUtil.waitSecond(5);
+        newYahoo.search("Page Factory");
+        newYahoo.findElements();
+    }
 
 
 }
